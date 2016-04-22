@@ -19,6 +19,9 @@ public class JobStateTest {
 		
 		state = JobState.SEARCHING_ACTIVE;
 		Assert.assertEquals(state.name(),"SEARCHING_ACTIVE");
+		
+		state = JobState.EMPLOYED;
+		Assert.assertEquals(state.name(),"EMPLOYED");
 	}
 
 }
