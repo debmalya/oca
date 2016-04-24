@@ -5,6 +5,7 @@ package oce.gift;
 
 import static org.junit.Assert.*;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -20,6 +21,12 @@ public class JobStateMapTest {
 	public final void testAddExperience() {
 		JobStateMap jsm = new JobStateMap();
 		jsm.addExperience("Avita Software Private Limited", 6.5f);
+		
+		float actual = jsm.getExperience("Avita Software Private Limited");
+		Assert.assertEquals(6.5f, actual, 0.00f);
+		
+		actual = jsm.getExperience("Avita Software Private");
+		Assert.assertEquals(0.00f, actual, 0.00f);
 	}
 
 }

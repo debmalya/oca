@@ -23,6 +23,11 @@ public class JobStateMap {
 
 	}
 
+	/**
+	 * 
+	 * @param companyName
+	 * @param yearsOfExperience
+	 */
 	public void addExperience(final String companyName,
 			final float yearsOfExperience) {
 		Map<String, Float> value = jobEmployeeMap.get(JobState.EMPLOYED);
@@ -31,5 +36,21 @@ public class JobStateMap {
 		}
 		value.put(companyName, yearsOfExperience);
 		jobEmployeeMap.put(JobState.EMPLOYED, value);
+	}
+	
+	/**
+	 * 
+	 * @param companyName
+	 * @return
+	 */
+	public float getExperience(final String companyName) {
+		
+		Map<String, Float> expMap = jobEmployeeMap.get(JobState.EMPLOYED);
+		Float exp = expMap.get(companyName);
+		if (exp == null){
+			return 0.00f;
+		}
+		return exp;
+		
 	}
 }
