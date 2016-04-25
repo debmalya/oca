@@ -27,6 +27,9 @@ public class JobStateMapTest {
 		
 		actual = jsm.getExperience("Avita Software Private");
 		Assert.assertEquals(0.00f, actual, 0.00f);
+		
+		actual = jsm.getExperience("Google");
+		Assert.assertEquals(0.00f, actual, 0.00f);
 	}
 
 }
