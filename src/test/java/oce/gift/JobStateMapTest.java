@@ -33,6 +33,9 @@ public class JobStateMapTest {
 		
 		actual = jsm.getExperience("IBM");
 		Assert.assertEquals(0.00f, actual, 0.00f);
+		
+		actual = jsm.getExperience("Amazon");
+		Assert.assertEquals(0.00f, actual, 0.00f);
 	}
 
 }
