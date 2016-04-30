@@ -3,8 +3,6 @@
  */
 package oce.gift;
 
-import static org.junit.Assert.*;
-
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -61,6 +59,31 @@ public class JobStateMapTest {
 			Assert.assertEquals(0.00f, actual, 0.00f);
 		}
 		System.out.println("Time taken :" + (System.currentTimeMillis() - startTime) + " ms.");
+	}
+	
+	@Test
+	public final void testPerformanceConcurrentHashMap() {
+		JobStateConcurrentMap jsm = new JobStateConcurrentMap();
+		long startTime = System.currentTimeMillis();
+		for (int i = 0; i < 1000000; i++) {
+			jsm.addExperience("Avita Software Private Limited", 6.5f);
+			
+			float actual = jsm.getExperience("Avita Software Private Limited");
+			Assert.assertEquals(6.5f, actual, 0.00f);
+			
+			actual = jsm.getExperience("Avita Software Private");
+			Assert.assertEquals(0.00f, actual, 0.00f);
+			
+			actual = jsm.getExperience("Google");
+			Assert.assertEquals(0.00f, actual, 0.00f);
+			
+			actual = jsm.getExperience("IBM");
+			Assert.assertEquals(0.00f, actual, 0.00f);
+			
+			actual = jsm.getExperience("Amazon");
+			Assert.assertEquals(0.00f, actual, 0.00f);
+		}
+		System.out.println("Time taken JobStateConcurrentMap :" + (System.currentTimeMillis() - startTime) + " ms.");
 	}
 
 }
