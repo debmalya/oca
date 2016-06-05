@@ -26,7 +26,7 @@ public class RemoveIf {
 	 * 
 	 * @param n whose multiple if any will be removed.
 	 */
-	public static void check(int n){
+	public static List<Integer> check(int n){
 		List<Integer> randomIntCollection = new ArrayList<>();
 		Random random = new Random();
 		for (int i = 0; i < 10; i++) {
@@ -35,6 +35,7 @@ public class RemoveIf {
 		System.out.println("Original collection :" + randomIntCollection);
 		randomIntCollection.removeIf(e -> e % n == 0);
 		System.out.println("After removing multiple of " + n + " :" + randomIntCollection);
+		return randomIntCollection;
 	}
 
 }
