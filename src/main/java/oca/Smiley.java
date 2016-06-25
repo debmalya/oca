@@ -3,6 +3,8 @@
  */
 package oca;
 
+import java.util.Random;
+
 /**
  * @author debmalyajash
  *
@@ -15,8 +17,7 @@ public class Smiley {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		System.out.println(smile(new Random().nextInt(80)));
 	}
 	
 	/**
